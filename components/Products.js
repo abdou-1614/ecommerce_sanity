@@ -11,6 +11,7 @@ const Products = ({ product: { image, name, slug, price } }) => {
           width={250}
           height={250}
           className='rounded-[15px] bg-[#ebebeb] transition ease delay-75 scale-110 '
+          alt='HeadPhne'
           />
           <p className='font-500 mt-3'>{name}</p>
           <p  className='font-[800] mt-2 text-black'>${price}</p>

@@ -12,6 +12,7 @@ const Home = ({ products, bannerData }) => {
     <div className='flex justify-center flex-wrap gap-4 mt-4 w-full'>
       {products?.map((product) => <Products key={product._id} product={product} /> )}
     </div>
+    <FooterBanner Footerbanner={bannerData && bannerData[0]} />
     </div>
   )
 }
