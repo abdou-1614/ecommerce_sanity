@@ -10,14 +10,14 @@ const Home = ({ products, bannerData }) => {
       <p className='text-base font-[200]'>Here Where Gamers Comes</p>
     </div>
     <div className='flex justify-center flex-wrap gap-4 mt-4 w-full'>
-      {products?.map((product) => product.name )}
+      {products?.map((product) => <Products key={product._id} product={product} /> )}
     </div>
     </div>
   )
 }
 
 export const getServerSideProps = async () => {
-  const query = "*[_type == 'products']"
+  const query = "*[_type == 'product']"
   const products = await client.fetch(query)
   const bannerQuery = "*[_type == 'banner']"
   const bannerData = await client.fetch(bannerQuery)

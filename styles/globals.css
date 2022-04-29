@@ -41,3 +41,11 @@ width: 100%;
   /* color: black; */
   align-self: flex-end;
 }
+.product-card{
+  transform: scale(1, 1);
+  transition: transform 0.5s ease;
+
+}
+.product-card:hover{
+  transform: scale(1.1,1.1)
+}
