@@ -1,14 +1,23 @@
+import Link from 'next/link'
 import React from 'react'
 
-const FooterBanner = ({Footerbanner: { largeText1, largeText2, Discount, SaleTime, Desc, image, SmallText, MidText, Product}  }) => {
+const FooterBanner = ({Footerbanner: { largeText1, largeText2, discount, saleTime, buttonText , desc, image, smallText, midText, product}  }) => {
   return (
-    <div className='relative py-[100px] px-10 bg-[#f02d34] rounded-[15px] h-[400px] leading-3 text-white w-full mt-28 '>
-      <div className='flex justify-between'>
-        <div className='font-[900] text-[80px] ml-6'>
-          <p></p>
-          <h3></h3>
-          <h3></h3>
-          <p></p>
+    <div className='footer-banner-container'>
+      <div className='banner-desc'>
+        <div className='left'>
+          <p > {discount} OFF </p>
+          <h3 > {largeText1} </h3>
+          <h3 > {largeText2} </h3>
+          <p > {saleTime} </p>
+        </div>
+        <div className='right'>
+          <p> {smallText} </p>
+          <h3> {midText} </h3>
+          <p> {desc} </p>
+          <Link href={`/product/${product}`} >
+            <button type='button' > {buttonText} </button>
+          </Link>
         </div>
       </div>
     </div>
