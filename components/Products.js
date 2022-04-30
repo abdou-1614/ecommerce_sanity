@@ -5,7 +5,7 @@ const Products = ({ product: { image, name, slug, price } }) => {
   return (
     <div>
       <Link href={`/product/${slug.current}`}>
-        <div className='cursor-pointer text-[#324d67] product-card'>
+        <div className='cursor-pointer text-[#324d67] product-card shadow-md m-4'>
           <img
           src={urlFor(image && image[0])}
           width={250}
