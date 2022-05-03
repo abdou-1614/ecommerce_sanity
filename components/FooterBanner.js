@@ -3,7 +3,7 @@ import React from 'react'
 import {urlFor} from '../lib/client'
 const FooterBanner = ({Footerbanner : { largeText1, largeText2, discount, saleTime, buttonText , desc, image, smallText, midText, product} }) => {
   return (
-    <div className='relative py-24 px-10 bg-[#f02d34] rounded-[15px] h-[400px] leading-none w-full text-white mt-32 '>
+    <div className='relative py-24 hidden md:block px-10 bg-[#f02d34] rounded-[15px] h-[400px] leading-none w-full text-white mt-32 '>
       <div className='flex justify-between'>
         <div className='left'>
           <p className='m-5'> {discount} OFF </p>
