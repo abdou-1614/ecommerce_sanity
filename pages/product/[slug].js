@@ -1,23 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {client, urlFor} from '../../lib/client'
 import {AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar} from 'react-icons/ai'
+import Products from '../../components/Products'
 const productDetails = ({ product, products }) => {
-    const {image, details, name, price} = product
+    const {image, details, name, price} = product;
+    const [index, setIndex] = useState(0)
   return (
     <div>
         <div className='flex gap-10 m-10 mt-[60px] text-[#324d67] '>
             <div>
                 <div className=' rounded-[15px] bg-[#ebebeb] w-[400px] h-[400px] cursor-pointer transition delay-150 ease hover:bg-[#f02d34] ' >
-                    <img src={urlFor(image && image[0])} />
+                    <img src={urlFor(image && image[index])} className='rounded-[15px] bg-[#ebebeb] w-[400px] h-[400px] cursor-pointer transition delay-100 ease hover:bg-[#f02d34] ' />
                 </div>
-                {/* <div className='flex gap-3 mt-5' >
+                <div className='flex gap-3 mt-5' >
                     {image?.map((item, i) => (
-                        <img src={urlFor(image)} 
-                        className=''
-                        onMouseEnter=""
+                        <img src={urlFor(item)} 
+                        className={i == index ? 'rounded-[8px] bg-[#ebebeb] w-[70px] h-[70px] cursor-pointer hover:bg-[#f02d34] ' : 'rounded-[8px] bg-[#ebebeb] w-[70px] h-[70px] cursor-pointer'}
+                        onMouseEnter={() => setIndex(i)}
                         />
                     ))}
-                </div> */}
+                </div>
             </div>
             <div className='mt-3'>
                     <h1 className='font-bold text-2xl' >{name}</h1>
@@ -56,6 +58,16 @@ const productDetails = ({ product, products }) => {
                         <button className='buy mt-5 md:mt-10 ' type='button' >Buy Now</button>
                     </div>
                 </div>
+        </div>
+        <div className='mt-[120px]'>
+            <h2 className='text-center m-[50px] text-[#324d67] text-[28px] font-bold ' >You May Also Like</h2>
+            <div className='relative h-[400px] w-full overflow-x-hidden marquee ' >
+                <div className='flex justify-center gap-[15px] mt-[20px] track' >
+                    {products.map((item) => (
+                        <Products key={item._id} product={item} />
+                    ))}
+                </div>
+            </div>
         </div>
     </div>
   )
