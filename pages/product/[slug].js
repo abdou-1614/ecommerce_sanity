@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import {client, urlFor} from '../../lib/client'
 import {AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar} from 'react-icons/ai'
 import Products from '../../components/Products'
+import {useStateContext} from '../../context/StateContext'
 const productDetails = ({ product, products }) => {
     const {image, details, name, price} = product;
     const [index, setIndex] = useState(0)
+    const {incQty, decQty, qty, onAdd} = useStateContext()
   return (
     <div>
         <div className='flex gap-9 m-9 mt-[60px] text-[#324d67] '>
@@ -39,20 +41,20 @@ const productDetails = ({ product, products }) => {
                     <div className='quantity flex-col md:flex-row md:items-center '>
                         <h3>Quantity: </h3>
                         <p className='quantity-desc flex items-center h-10 w-32 md:w-[130px]'>
-                            <span className='minus 	' >
+                            <span className='minus 	' onClick={decQty} >
                                 <AiOutlineMinus/>
                             </span>
                             <span className='num' >
-                                0
+                                {qty}
                             </span>
-                            <span className='plus ' >
+                            <span className='plus ' onClick={incQty} >
                                 <AiOutlinePlus/>
                             </span>
                         </p>
                     </div> 
                     <div className='flex flex-col md:flex-row md:gap-7'>
                         <button type='button' 
-                        className='py-2 lg:py-3 px-3 lg:px-5 text-[#f02d34] bg-white text-[18px] font-[500] mt-5 lg:mt-10 cursor-pointer w-[140px] lg:w-[200px] btn'>
+                        className='py-2 lg:py-3 px-3 lg:px-5 text-[#f02d34] bg-white text-[18px] font-[500] mt-5 lg:mt-10 cursor-pointer w-[140px] lg:w-[200px] btn' onClick={() => onAdd(product, qty)}>
                             Add To Cart
                         </button>
                         <button className='buy w-[140px] lg:w-[200px] py-2 lg:py-3 px-3 lg:px-5 mt-5 md:mt-10 ' type='button' >Buy Now</button>
