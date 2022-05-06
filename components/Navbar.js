@@ -3,7 +3,7 @@ import React from 'react'
 import {BiShoppingBag} from 'react-icons/bi'
 const Navbar = () => {
   return (
-    <div className='flex justify-between my-2 mx-4 relative '>
+    <div className='flex justify-between my-2 mx-3 relative '>
         <p className='text-3xl font-bold text-gray-500'>
           <Link href='/'>JS Gaming</Link>
         </p>

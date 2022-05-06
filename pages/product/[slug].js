@@ -7,10 +7,10 @@ const productDetails = ({ product, products }) => {
     const [index, setIndex] = useState(0)
   return (
     <div>
-        <div className='flex gap-10 m-10 mt-[60px] text-[#324d67] '>
+        <div className='flex gap-9 m-9 mt-[60px] text-[#324d67] '>
             <div>
-                <div className=' rounded-[15px] bg-[#ebebeb] w-[400px] h-[400px] cursor-pointer transition delay-150 ease hover:bg-[#f02d34] ' >
-                    <img src={urlFor(image && image[index])} className='rounded-[15px] bg-[#ebebeb] w-[400px] h-[400px] cursor-pointer transition delay-100 ease hover:bg-[#f02d34] ' />
+                <div className=' rounded-[15px] bg-[#ebebeb] w-[280px] h-[280px] lg:h-[400px] lg:w-[400px] cursor-pointer transition delay-150 ease hover:bg-[#f02d34] ' >
+                    <img src={urlFor(image && image[index])} className='rounded-[15px] bg-[#ebebeb] w-[300px] h-[300px] lg:h-[400px] lg:w-[400px] cursor-pointer transition delay-100 ease hover:bg-[#f02d34] ' />
                 </div>
                 <div className='flex gap-3 mt-5' >
                     {image?.map((item, i) => (
@@ -21,9 +21,9 @@ const productDetails = ({ product, products }) => {
                     ))}
                 </div>
             </div>
-            <div className='mt-3'>
+            <div className='mt-2'>
                     <h1 className='font-bold text-2xl' >{name}</h1>
-                    <div className='flex items-center text-[#f02d34] gap-3 mt-3 '>
+                    <div className='flex items-center text-[#f02d34] lg:gap-3 gap-2 mt-3 '>
                         <div className='flex'>
                             <AiFillStar/>
                             <AiFillStar/>
@@ -52,10 +52,10 @@ const productDetails = ({ product, products }) => {
                     </div> 
                     <div className='flex flex-col md:flex-row md:gap-7'>
                         <button type='button' 
-                        className='py-3 px-5 text-[#f02d34] bg-white text-[18px] font-[500] mt-5 md:mt-10 cursor-pointer w-[200px] btn'>
+                        className='py-2 lg:py-3 px-3 lg:px-5 text-[#f02d34] bg-white text-[18px] font-[500] mt-5 lg:mt-10 cursor-pointer w-[140px] lg:w-[200px] btn'>
                             Add To Cart
                         </button>
-                        <button className='buy mt-5 md:mt-10 ' type='button' >Buy Now</button>
+                        <button className='buy w-[140px] lg:w-[200px] py-2 lg:py-3 px-3 lg:px-5 mt-5 md:mt-10 ' type='button' >Buy Now</button>
                     </div>
                 </div>
         </div>
